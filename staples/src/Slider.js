@@ -1,12 +1,11 @@
 import React, {useState} from 'react'
 import JsonData from '../src/data.json'
 
-const slides = JsonData.data;
+const buttonStates = JsonData.data;
 export const Slider = () => {
-const [buttonIndex, setCurrentIndex] = useState(0);
+const [currentIndex, setCurrentIndex] = useState(0);
 
-  const buttonStates = slides;
-    
+  
   const handleNextButtonClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % buttonStates.length);
   };
@@ -19,9 +18,9 @@ const [buttonIndex, setCurrentIndex] = useState(0);
     return (
     <>
     <div className='cardDisplay'>
-        <h3> {buttonStates[buttonIndex].title}</h3>
-        <img src={buttonStates[buttonIndex].url} alt="gg" height="300px"/> 
-        <p> {buttonStates[buttonIndex].body}</p>
+        <h3> {buttonStates[currentIndex].title}</h3>
+        <img src={buttonStates[currentIndex].url} alt="gg" height="300px"/> 
+        <p> {buttonStates[currentIndex].body}</p>
     </div>
     <div className="cardDisplay">
         <button onClick={handlePreviousButtonClick}> Back </button>
